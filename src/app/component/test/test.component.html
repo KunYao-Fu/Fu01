@@ -1,0 +1,29 @@
+<div class=test>
+    <p *ngIf='zero > 0' (click)="this.minus()">-</p>
+    <p (click) = "this.log(this.toString(this.zero))" [ngStyle]="{'color': this.zero % 2 == 0 ? 'blue' : 'red' }">{{this.toString(this.zero)}}</p>
+    <p *ngIf='zero < 10' (click)="this.plus()">+</p>
+</div>
+
+<!-- <div class = test>
+    <div *ngFor= "let j of this.array;let i = index" class="border">
+        <span class="align">
+            <p>{{j}}</p>
+            <button (click)="this.reply(j)"></button>
+        </span>
+    </div>
+</div> -->
+
+<div class="test">
+    <ng-container [ngSwitch]="this.zero">
+        <ng-container *ngFor="let j of this.array2;let i = index">
+            <div *ngSwitchCase="j" class="border">
+                <span class="align">
+                    <p [ngStyle]="{'color': j % 2 == 0 ? 'blue' : 'red' }">{{j}}</p>
+                    <button (click)="this.reply(j)"></button>
+                </span>
+            </div>
+            <app-card [content] = j></app-card>
+        </ng-container>
+    </ng-container>
+    <button (click)="this.increase()" class="button"></button>
+</div>
